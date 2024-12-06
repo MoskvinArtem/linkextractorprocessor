@@ -22,6 +22,12 @@ From: 'Apache NiFi Project' (http://nifi.apache.org/)
   - nifi-utils (http://nifi.apache.org/nifi-commons/nifi-utils) org.apache.nifi:nifi-utils:jar:1.0.0
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
 
+From: 'FasterXML' (http://fasterxml.com)
+  - Jackson (http://jackson.codehaus.org) org.codehaus.jackson:jackson-core-asl:jar:1.9.13
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Data Mapper for Jackson (http://jackson.codehaus.org) org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
 From: 'Jonathan Hedley' (http://jonathanhedley.com/)
   - jsoup (https://jsoup.org/) org.jsoup:jsoup:jar:1.10.1
     License: The MIT License  (https://jsoup.org/license)

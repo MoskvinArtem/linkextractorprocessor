@@ -1,3 +1,4 @@
-/Volumes/Transcend/projects/linkextractorprocessor/linkextractor/nifi-process-processors/src/main/java/com/dataflowdeveloper/processors/process/LinkProcessor.java
-/Volumes/Transcend/projects/linkextractorprocessor/linkextractor/nifi-process-processors/src/main/java/com/dataflowdeveloper/SoupService.java
-/Volumes/Transcend/projects/linkextractorprocessor/linkextractor/nifi-process-processors/src/main/java/com/dataflowdeveloper/PrintableLink.java
+/Users/artemmoskvin/IdeaProjects/nifiprocessor/nifi-process-processors/src/main/java/com/dataflowdeveloper/processors/process/LinkProcessor.java
+/Users/artemmoskvin/IdeaProjects/nifiprocessor/nifi-process-processors/src/main/java/com/dataflowdeveloper/processors/process/KafkaMessageToJSONProcessor.java
+/Users/artemmoskvin/IdeaProjects/nifiprocessor/nifi-process-processors/src/main/java/com/dataflowdeveloper/SoupService.java
+/Users/artemmoskvin/IdeaProjects/nifiprocessor/nifi-process-processors/src/main/java/com/dataflowdeveloper/PrintableLink.java
