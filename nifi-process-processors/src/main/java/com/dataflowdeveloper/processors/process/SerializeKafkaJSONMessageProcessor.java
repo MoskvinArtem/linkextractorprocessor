@@ -5,21 +5,17 @@ import org.apache.nifi.annotation.behavior.*;
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.annotation.lifecycle.OnScheduled;
-import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.flowfile.FlowFile;
 import org.apache.nifi.processor.*;
 import org.apache.nifi.processor.exception.ProcessException;
-import org.apache.nifi.processor.io.InputStreamCallback;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ObjectNode;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -29,7 +25,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @ReadsAttributes({@ReadsAttribute(attribute="", description="")})
 @WritesAttributes({@WritesAttribute(attribute="", description="")})
 @InputRequirement(InputRequirement.Requirement.INPUT_REQUIRED)
-public class KafkaMessageToJSONProcessor extends AbstractProcessor {
+public class SerializeKafkaJSONMessageProcessor extends AbstractProcessor {
 
     private Set<Relationship> relationships;
     private ObjectMapper mapper;
@@ -83,21 +79,17 @@ public class KafkaMessageToJSONProcessor extends AbstractProcessor {
                     String message = IOUtils.toString(bufferedIn, "UTF-8");
 
                     // Convert the message to JSON
-                    ObjectNode objectNode;
+                    JsonNode jsonNode;
 
-                    objectNode = mapper.createObjectNode();
-                    objectNode.put("message", message);
 
-//                    try {
-//                        jsonNode = mapper.readTree(message); // Check if already valid JSON
-//                    } catch (IOException e) {
-//                        // If not valid JSON, wrap it
-//                        objectNode = mapper.createObjectNode();
-//                        objectNode.put("message", message);
-//                        objectNode.put("message", );
-//                    }
+                    try {
+                        jsonNode = mapper.readTree(message); // Check if already valid JSON
+                    } catch (IOException e) {
+                        jsonNode = mapper.createObjectNode();
+                        e.printStackTrace();
+                    }
 
-                    jsonStringRef.set(mapper.writeValueAsString(objectNode));
+                    jsonStringRef.set(mapper.writeValueAsString(jsonNode));
                 }
             });
 
