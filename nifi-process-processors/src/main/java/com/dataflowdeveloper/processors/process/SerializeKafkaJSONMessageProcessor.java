@@ -131,7 +131,7 @@ public class SerializeKafkaJSONMessageProcessor extends AbstractProcessor {
                 atFlowfile = session.putAttribute(
                         original,
                         context.getProperty(MESSAGE_FLOWFILE_ATTRIBUTE_NAME_PROPERTY).getValue(),
-                        mapper.writeValueAsString(jsonStringRef.get())
+                        jsonStringRef.get()
                 );
                 session.transfer(atFlowfile, REL_SUCCESS);
             }
